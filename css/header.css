@@ -1,0 +1,383 @@
+* a{
+    color: #fff;
+}
+.hide_text{
+    text-indent: -99999999px;
+}
+
+#wrap{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* overflow: hidden; */
+}
+.header{
+    width: 100%;
+    height: 100px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* 일단 넣어놓기 */
+}
+.header_wrap{
+    width: 100%;
+    height: 100%;
+    
+    padding:21px 0 0 0;
+
+    overflow: hidden;
+}
+.header_area{
+    width:1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom:13px;
+}
+
+/* 로고부분 */
+.logo_wrap{
+    float: left;
+}
+.main_logo{
+    width: 140px;
+    height: 57px;
+    padding: 9px 0 0 0;
+    display: block;
+    background: url('../img/common/logo02.png') center no-repeat;
+    text-indent: -99999999px;
+}
+
+header.white .main_logo{
+    background: url('../img/common/logo01.png') center no-repeat; 
+}
+
+/* 네비부분 */
+.nav{
+    float: right;
+}
+.lang_wrap,.menu_wrap,.btn_visit,.btn_tickets,.main_hamberg{
+   float: left;
+   display: block;
+}
+/* 네비의 언어부분 */
+.lang_wrap a{
+    padding: 0 0 0 14px;
+    font-size: 16px;
+    font-family: Oswald;
+    margin-left: 12px;
+
+    line-height: 33px;
+    color: #000;
+}
+
+.lang_wrap .eng{
+    border-left: 1px solid #000;
+}
+/* add */
+header.white .lang_wrap a{
+    color: #fff;
+}
+header.white .lang_wrap .eng{
+     border-color: #fff;
+}
+
+
+/*  */
+
+/* 네비의 visit ticket부분  */
+.menu_wrap{
+    margin-left: 25px;
+}
+.menu_wrap a{
+margin-left: 12px;
+display: inline-block;
+border: 1px solid #000;
+color: #000;
+width: 113px;
+text-align: center;
+font-size: 16px;
+font-family: Oswald;
+padding: 5px 0 5px 0
+}
+.menu_wrap .btn_tickets{
+    position: relative;
+}
+/* 네비의 티켓부분 하위메뉴 */
+.tickets_dropdown{
+    width: 113px;
+    height: 0px;
+    opacity: 0;
+
+    position: absolute;
+    top: 28px;
+    left: 12px;
+
+    border:1px solid #000;
+    border-top: none;
+    transition: height 0.5s;
+}
+.tickets_dropdown a{
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+
+    line-height: 15px;
+   
+    display: block;
+    margin: 0 auto;
+    border: none;
+
+    padding: 10px;
+    box-sizing: border-box;
+   
+}
+
+/* add */
+header.white .lang_wrap .menu_wrap{
+    color: #fff;  
+}
+header.white  .menu_wrap a{
+    color: #fff;  
+    border-color: #fff;
+}
+header.white  .menu_wrap div{
+     border-color: #fff;
+}
+/*  */
+
+
+.btn_tickets:hover .tickets_dropdown{
+    height: 70px;
+    opacity: 1;
+}
+.btn_tickets:hover a{
+    transition-duration: 0.5s;
+    transition-delay: 0.1s;
+    opacity: 1;
+}
+
+/* 햄버거 부분 */
+.main_hamberg{
+   width: 30px;
+   height: 30px;
+   margin-left: 30px;
+	
+   position: relative;
+   z-index: 100;
+}
+.main_hamberg > div{background: #333;}
+.hamberg_top,.hamberg_bot{
+    width: 100%;
+    height: 4px;
+   
+    margin-bottom: 8px;
+}
+.hamberg_mid{
+    width: 22px;
+    height: 4px;
+    margin-bottom: 8px;
+    /* transform: translateX(35%); */
+}
+/* add */
+header.white .main_hamberg > div{
+  background: #fff;   
+}
+/*  */
+
+/* hamberg 애니메이션 부분(addclass)*/
+/* 돌아가기  */
+.line_top{ 
+    animation: line_top_transform .5s forwards , line_top_rotate .5s .5s forwards;
+}
+@keyframes line_top_transform{
+    0%{transform: translateY(0);}
+    100%{transform: translateY(12px);}
+}
+@keyframes line_top_rotate{
+    0%{transform: translateY(12px);}
+    100%{transform: translateY(12px) rotate(45deg);}
+}
+.line_mid{
+  animation: line_mid_scale .2s .5s forwards;
+}
+@keyframes line_mid_scale{
+    0%{transform: scale(1);}
+    100%{transform: scale(0);}
+}
+.line_bot{ 
+    animation: line_bot_transform .5s forwards , line_bot_rotate .5s .5s forwards;
+}
+@keyframes line_bot_transform{
+    0%{transform: translateY(0);}
+    100%{transform: translateY(-12px);}
+}
+@keyframes line_bot_rotate{
+    0%{transform: translateY(-12px);}
+    100%{transform: translateY(-12px) rotate(-45deg);}
+}
+
+/* 제자리로 돌아오기 */
+.line_top_reverse{ 
+    animation: line_top_reverse_rotate .5s forwards , line_top_reverse_transform .5s .5s forwards;
+}
+@keyframes line_top_reverse_rotate{
+    0%{transform: translateY(12px)rotate(45deg);;}
+    100%{transform: translateY(12px)rotate(0); }
+}
+@keyframes line_top_reverse_transform{
+    0%{transform: translateY(12px);}
+    100%{transform: translateY(0);}
+}
+.line_mid_reverse{
+    animation: line_mid_reverse_scale .2s .5s forwards;
+  }
+  @keyframes line_mid_reverse_scale{
+      0%{transform: scale(0);}
+      100%{transform: scale(1);}
+  }
+
+.line_bot_reverse{ 
+    animation: line_bot_reverse_rotate .5s forwards , line_bot_reverse_transform .5s .5s forwards;
+}
+@keyframes line_bot_reverse_rotate{
+    0%{transform: translateY(-12px)rotate(-45deg);;}
+    100%{transform: translateY(-12px)rotate(0); }
+}
+@keyframes line_bot_reverse_transform{
+    0%{transform: translateY(-12px);}
+    100%{transform: translateY(0);}
+}
+
+
+/* allmenu 영역 */
+.all_menu{
+position: fixed;
+top: 0;
+left: 0;
+z-index: 10;
+
+width: 100%;
+height: 0;
+background: #000;
+overflow: hidden;
+
+/* transform: translateY(-100%); */
+/* transition: all 0.5s; */
+}
+.all_menu_wrap{
+    width: 1200px;
+    margin:0 auto;
+    padding: 21px 0 13px 0; 
+}
+/* 상단 nav영역 */
+.all_menu_top{
+    overflow: hidden;
+}
+.all_menu_nav{
+    float: right;
+} 
+.all_menu_lang{
+    float: left;  
+    margin-right: 50px; 
+}
+.all_logo_wrap{
+    float: left;
+}
+.all_logo_wrap a{
+    width: 140px;
+    height: 57px;
+
+    padding: 9px 0 0 0;
+
+    display: block;
+    background: url('../img/common/logo01.png') center no-repeat;
+    text-indent: -99999999px;
+}
+
+/* 상단 nav영역 > hover되는거 없애기 햄버거 버튼 시작부터 x표시 되도록 하기 */
+
+/* allmenu 중간영역 */
+.all_menu_mid{
+    width: 1200px;
+    margin: 0 auto;
+}
+.all_menu_mid_wrap{
+    padding: 70px 0 70px 0;
+}
+/* list 크기잡기 */
+.all_menu_list_wrap{
+    width: 100%;
+    display: table;
+    margin: 0 auto;
+}
+.all_menu_list{
+    display: table-cell;
+    text-align: center;
+}
+.all_menu_list2{
+    width: 210px;
+}
+.all_menu_list3{
+    width: 180px;
+}
+.all_menu_list4{
+    width: 230px;
+}
+.all_menu_list6{
+    width:200px;
+}
+/* list font 스타일 잡기  */
+.all_menu_list_content{
+    padding: 17px 0 21px 0;
+}
+.all_menu_list_content a{
+    font-family: notosans;
+    font-size: 16px;
+}
+.all_menu_list_title{
+    padding-bottom: 19px; 
+}
+.all_menu_list_title a{
+    font-family: Oswald;
+    font-weight: bold;
+    font-size: 34px;
+    color: #fdf2d9;
+    padding-bottom:10px;
+}
+
+/* allmenu bot */
+.all_menu_bot{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0 35px 0;
+    border-top: 1px solid #3e3e3e;
+    overflow: hidden;
+}
+/* bot logo */
+.all_menu_bot_logo{
+    float: left;
+}
+.all_menu_bot_logo div{
+    float: left;
+}
+.all_menu_bot_logo2{
+    margin-left: 30px; 
+    transform: translateY(-19px);
+}
+/* bot nav */
+.all_menu_bot_nav{
+    float: right;
+}
+.all_menu_bot_nav div{
+    padding: 0 0 0 14px;
+    font-size: 16px;
+    font-family: notosans;
+    margin-left: 12px;
+
+    float: left;
+}
+.all_menu_bot_sign{
+    border-left: 1px solid #fff;
+}
